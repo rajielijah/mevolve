@@ -12,7 +12,6 @@ class Test extends StatefulWidget {
 }
 
 class _TestState extends State<Test> {
-  var startDateSelected, endDateSelected;
   final DateRangePickerController _controller = DateRangePickerController();
   final DateRangePickerController _with4PresetController = DateRangePickerController();
   final DateRangePickerController _with6PresetController = DateRangePickerController();
@@ -36,7 +35,7 @@ class _TestState extends State<Test> {
             setState((){
               withoutPreset = false;
             });
-          }): Text(''),
+          }): const Text(''),
           SizedBox(height: resHeight(31.96, sHeight),),
           button(sHeight, sWidth, 'With 4 presets', with4Presets),
           SizedBox(height: resHeight(16.04, sHeight),),
@@ -44,7 +43,7 @@ class _TestState extends State<Test> {
             setState((){
               w4Presets = false;
             });
-          }): Text(''),
+          }): const Text(''),
           SizedBox(height: resHeight(31.96, sHeight),),
           button(sHeight, sWidth, 'With 6 presets', with6Presets),
           SizedBox(height: resHeight(16.04, sHeight),),
@@ -52,7 +51,7 @@ class _TestState extends State<Test> {
             setState((){
               w6Presets = false;
             });
-          }): Text(''),
+          }): const Text(''),
           SizedBox(height: resHeight(221, sHeight),),
           const Text('Raji Elijah O.', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17))
         ]        ),
@@ -82,7 +81,7 @@ class _TestState extends State<Test> {
         barrierColor: Colors.black54,
         pageBuilder: (context, animation, secondaryAnimation) {
           return Dialog(
-              insetPadding: EdgeInsets.only(left: 10, right: 10),
+              insetPadding: const EdgeInsets.only(left: 10, right: 10),
               elevation: 0,
               backgroundColor: Colors.white,
               shape: RoundedRectangleBorder(
@@ -99,11 +98,11 @@ class _TestState extends State<Test> {
                     padding: EdgeInsets.only(bottom: resHeight(20, sHeight), left: resHeight(16, sHeight)),
                     child: Row(
                       children: [
-                        Icon(Icons.calendar_today_outlined, color: Color(0xFF1DA1F2),),
+                        const Icon(Icons.calendar_today_outlined, color: Color(0xFF1DA1F2),),
                         SizedBox(width: resWidth(12, sWidth),),
-                        Container(
+                        SizedBox(
                             width: resWidth(89, sWidth),
-                            child: Text('24-5-2022', style: TextStyle(fontSize: resHeight(16, sHeight), ),)),
+                            child: Text(withoutPreset ? shortDate( _controller.selectedDate.toString()) : '', style: TextStyle(fontSize: resHeight(16, sHeight), ),)),
                         SizedBox(width: resWidth(80.42, sWidth),),
                         GestureDetector(
                           onTap: (){
@@ -113,11 +112,11 @@ class _TestState extends State<Test> {
                             height : resHeight(40, sHeight),
                             width: resWidth(73, sWidth),
                             decoration: BoxDecoration(
-                                color: Color(0xFFEDF8FF),
+                                color: const Color(0xFFEDF8FF),
                                 borderRadius: BorderRadius.circular(5)
                             ),
                             child: Center(
-                              child: Text('Cancel', style: TextStyle(fontSize: resHeight(16, sHeight), color: Color(0xFF1DA1F2),
+                              child: Text('Cancel', style: TextStyle(fontSize: resHeight(16, sHeight), color: const Color(0xFF1DA1F2),
                                 fontWeight: FontWeight.w500, ),),
                             ),
                           ),
@@ -135,7 +134,7 @@ class _TestState extends State<Test> {
                             height : resHeight(40, sHeight),
                             width: resWidth(73, sWidth),
                             decoration: BoxDecoration(
-                                color: Color(0xFF1DA1F2),
+                                color: const Color(0xFF1DA1F2),
                                 borderRadius: BorderRadius.circular(5)
                             ),
                             child: Center(
@@ -163,7 +162,7 @@ class _TestState extends State<Test> {
         barrierColor: Colors.black54,
         pageBuilder: (context, animation, secondaryAnimation) {
           return Dialog(
-              insetPadding: EdgeInsets.only(left: 10, right: 10),
+              insetPadding: const EdgeInsets.only(left: 10, right: 10),
               elevation: 0,
               backgroundColor: Colors.white,
               shape: RoundedRectangleBorder(
@@ -195,20 +194,16 @@ class _TestState extends State<Test> {
                   view: DateRangePickerView.month,
                   showNavigationArrow: true,
                   controller: _with4PresetController,
-                  // onCancel: () {
-                  //   Navigator.pop(context);
-                  // },
                 ),
-                // SizedBox(height: resHeight(21.88, sHeight),),
                 Padding(
                   padding: EdgeInsets.only(bottom: resHeight(20, sHeight), left: resHeight(16, sHeight)),
                   child: Row(
                     children: [
-                      Icon(Icons.calendar_today_outlined, color: Color(0xFF1DA1F2),),
+                      const Icon(Icons.calendar_today_outlined, color: Color(0xFF1DA1F2),),
                       SizedBox(width: resWidth(12, sWidth),),
-                      Container(
+                      SizedBox(
                           width: resWidth(89, sWidth),
-                          child: Text('24-5-2022', style: TextStyle(fontSize: resHeight(16, sHeight), ),)),
+                          child: Text(w4Presets ? shortDate( _with4PresetController.selectedDate.toString()): '', style: TextStyle(fontSize: resHeight(16, sHeight), ),)),
                       SizedBox(width: resWidth(80.42, sWidth),),
                       GestureDetector(
                         onTap: (){
@@ -218,11 +213,11 @@ class _TestState extends State<Test> {
                           height : resHeight(40, sHeight),
                           width: resWidth(73, sWidth),
                           decoration: BoxDecoration(
-                              color: Color(0xFFEDF8FF),
+                              color: const Color(0xFFEDF8FF),
                               borderRadius: BorderRadius.circular(5)
                           ),
                           child: Center(
-                            child: Text('Cancel', style: TextStyle(fontSize: resHeight(16, sHeight), color: Color(0xFF1DA1F2),
+                            child: Text('Cancel', style: TextStyle(fontSize: resHeight(16, sHeight), color: const Color(0xFF1DA1F2),
                               fontWeight: FontWeight.w500, ),),
                           ),
                         ),
@@ -240,7 +235,7 @@ class _TestState extends State<Test> {
                           height : resHeight(40, sHeight),
                           width: resWidth(73, sWidth),
                           decoration: BoxDecoration(
-                              color: Color(0xFF1DA1F2),
+                              color: const Color(0xFF1DA1F2),
                               borderRadius: BorderRadius.circular(5)
                           ),
                           child: Center(
@@ -267,7 +262,7 @@ class _TestState extends State<Test> {
         barrierColor: Colors.black54,
         pageBuilder: (context, animation, secondaryAnimation) {
           return Dialog(
-              insetPadding: EdgeInsets.only(left: 10, right: 10),
+              insetPadding: const EdgeInsets.only(left: 10, right: 10),
               elevation: 0,
               backgroundColor: Colors.white,
               shape: RoundedRectangleBorder(
@@ -307,23 +302,18 @@ class _TestState extends State<Test> {
                   ),
                   SfDateRangePicker(
                     controller: _with6PresetController,
-                    // showActionButtons: true,
                     view: DateRangePickerView.month,
                     showNavigationArrow: true,
-                    // onCancel: () {
-                    //   Navigator.pop(context);
-                    // },
                   ),
-                  // SizedBox(height: resHeight(21.88, sHeight),),
                   Padding(
                     padding: EdgeInsets.only(bottom: resHeight(20, sHeight), left: resHeight(16, sHeight)),
                     child: Row(
                       children: [
-                        Icon(Icons.calendar_today_outlined, color: Color(0xFF1DA1F2),),
+                        const Icon(Icons.calendar_today_outlined, color: Color(0xFF1DA1F2),),
                         SizedBox(width: resWidth(12, sWidth),),
-                        Container(
+                        SizedBox(
                             width: resWidth(89, sWidth),
-                            child: Text('24-5-2022', style: TextStyle(fontSize: resHeight(16, sHeight), ),)),
+                            child: Text(w6Presets ? shortDate(_with6PresetController.selectedDate.toString()): '', style: TextStyle(fontSize: resHeight(16, sHeight), ),)),
                         SizedBox(width: resWidth(80.42, sWidth),),
                         GestureDetector(
                           onTap: (){
@@ -333,11 +323,11 @@ class _TestState extends State<Test> {
                             height : resHeight(40, sHeight),
                             width: resWidth(73, sWidth),
                             decoration: BoxDecoration(
-                                color: Color(0xFFEDF8FF),
+                                color: const Color(0xFFEDF8FF),
                                 borderRadius: BorderRadius.circular(5)
                             ),
                             child: Center(
-                              child: Text('Cancel', style: TextStyle(fontSize: resHeight(16, sHeight), color: Color(0xFF1DA1F2),
+                              child: Text('Cancel', style: TextStyle(fontSize: resHeight(16, sHeight), color: const Color(0xFF1DA1F2),
                                 fontWeight: FontWeight.w500, ),),
                             ),
                           ),
@@ -355,7 +345,7 @@ class _TestState extends State<Test> {
                             height : resHeight(40, sHeight),
                             width: resWidth(73, sWidth),
                             decoration: BoxDecoration(
-                                color: Color(0xFF1DA1F2),
+                                color: const Color(0xFF1DA1F2),
                                 borderRadius: BorderRadius.circular(5)
                             ),
                             child: Center(
